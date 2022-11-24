@@ -322,10 +322,135 @@ namespace Microsoft.Xna.Framework
 				 && this.Z == other.Z;
 		}
 
-		public override int GetHashCode()
-		{
-			return (int)(this.W + this.X + this.Y + this.Y);
-		}
+        /// <summary>
+        /// Round the members of this <see cref="Vector4"/> to the nearest integer value.
+        /// </summary>
+        public void Round()
+        {
+            X = MathF.Round(X);
+            Y = MathF.Round(Y);
+            Z = MathF.Round(Z);
+            W = MathF.Round(W);
+        }
+
+        /// <summary>
+        /// Creates a new <see cref="Vector4"/> that contains members from another vector rounded to the nearest integer value.
+        /// </summary>
+        /// <param name="value">Source <see cref="Vector4"/>.</param>
+        /// <returns>The rounded <see cref="Vector4"/>.</returns>
+        public static Vector4 Round(Vector4 value)
+        {
+            value.X = MathF.Round(value.X);
+            value.Y = MathF.Round(value.Y);
+            value.Z = MathF.Round(value.Z);
+            value.W = MathF.Round(value.W);
+            return value;
+        }
+
+        /// <summary>
+        /// Creates a new <see cref="Vector4"/> that contains members from another vector rounded to the nearest integer value.
+        /// </summary>
+        /// <param name="value">Source <see cref="Vector4"/>.</param>
+        /// <param name="result">The rounded <see cref="Vector4"/>.</param>
+        public static void Round(in Vector4 value, out Vector4 result)
+        {
+            result.X = MathF.Round(value.X);
+            result.Y = MathF.Round(value.Y);
+            result.Z = MathF.Round(value.Z);
+            result.W = MathF.Round(value.W);
+        }
+
+        /// <summary>
+        /// Round the members of this <see cref="Vector4"/> towards positive infinity.
+        /// </summary>
+        public void Ceiling()
+        {
+            X = MathF.Ceiling(X);
+            Y = MathF.Ceiling(Y);
+            Z = MathF.Ceiling(Z);
+            W = MathF.Ceiling(W);
+        }
+
+        /// <summary>
+        /// Creates a new <see cref="Vector4"/> that contains members from another vector rounded towards positive infinity.
+        /// </summary>
+        /// <param name="value">Source <see cref="Vector4"/>.</param>
+        /// <returns>The rounded <see cref="Vector4"/>.</returns>
+        public static Vector4 Ceiling(Vector4 value)
+        {
+            value.X = MathF.Ceiling(value.X);
+            value.Y = MathF.Ceiling(value.Y);
+            value.Z = MathF.Ceiling(value.Z);
+            value.W = MathF.Ceiling(value.W);
+            return value;
+        }
+
+        /// <summary>
+        /// Creates a new <see cref="Vector4"/> that contains members from another vector rounded towards positive infinity.
+        /// </summary>
+        /// <param name="value">Source <see cref="Vector4"/>.</param>
+        /// <param name="result">The rounded <see cref="Vector4"/>.</param>
+        public static void Ceiling(in Vector4 value, out Vector4 result)
+        {
+            result.X = MathF.Ceiling(value.X);
+            result.Y = MathF.Ceiling(value.Y);
+            result.Z = MathF.Ceiling(value.Z);
+            result.W = MathF.Ceiling(value.W);
+        }
+
+        /// <summary>
+        /// Round the members of this <see cref="Vector4"/> towards negative infinity.
+        /// </summary>
+        public void Floor()
+        {
+            X = MathF.Floor(X);
+            Y = MathF.Floor(Y);
+            Z = MathF.Floor(Z);
+            W = MathF.Floor(W);
+        }
+
+        /// <summary>
+        /// Creates a new <see cref="Vector4"/> that contains members from another vector rounded towards negative infinity.
+        /// </summary>
+        /// <param name="value">Source <see cref="Vector4"/>.</param>
+        /// <returns>The rounded <see cref="Vector4"/>.</returns>
+        public static Vector4 Floor(Vector4 value)
+        {
+            value.X = MathF.Floor(value.X);
+            value.Y = MathF.Floor(value.Y);
+            value.Z = MathF.Floor(value.Z);
+            value.W = MathF.Floor(value.W);
+            return value;
+        }
+
+        /// <summary>
+        /// Creates a new <see cref="Vector4"/> that contains members from another vector rounded towards negative infinity.
+        /// </summary>
+        /// <param name="value">Source <see cref="Vector4"/>.</param>
+        /// <param name="result">The rounded <see cref="Vector4"/>.</param>
+        public static void Floor(in Vector4 value, out Vector4 result)
+        {
+            result.X = MathF.Floor(value.X);
+            result.Y = MathF.Floor(value.Y);
+            result.Z = MathF.Floor(value.Z);
+            result.W = MathF.Floor(value.W);
+        }
+
+        /// <summary>
+        /// Gets the hash code of this <see cref="Vector4"/>.
+        /// </summary>
+        /// <returns>Hash code of this <see cref="Vector4"/>.</returns>
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = W.GetHashCode();
+                hashCode = (hashCode * 397) ^ X.GetHashCode();
+                hashCode = (hashCode * 397) ^ Y.GetHashCode();
+                hashCode = (hashCode * 397) ^ Z.GetHashCode();
+                return hashCode;
+            }
+        }
 
 		public static Vector4 Hermite(Vector4 value1, Vector4 tangent1, Vector4 value2, Vector4 tangent2, float amount)
 		{

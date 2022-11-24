@@ -186,7 +186,7 @@ namespace MonoGame.Tests {
 
         private readonly float _epsilon;
 
-        private Vector4Comparer(float epsilon)
+        public Vector4Comparer(float epsilon)
         {
             _epsilon = epsilon;
         }

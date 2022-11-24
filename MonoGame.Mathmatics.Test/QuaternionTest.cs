@@ -45,7 +45,7 @@ namespace MonoGame.Tests.Framework
             Compare(expected, Quaternion.Add(q1, q2));
 
             Quaternion result;
-            Quaternion.Add(ref q1, ref q2, out result);
+            Quaternion.Add(q1, q2, out result);
             Compare(expected, result);
         }
 
@@ -58,7 +58,7 @@ namespace MonoGame.Tests.Framework
             Compare(expected, Quaternion.Concatenate(q1, q2));
 
             Quaternion result;
-            Quaternion.Concatenate(ref q1, ref q2, out result);
+            Quaternion.Concatenate(q1, q2, out result);
             Compare(expected, result);
         }
 
@@ -70,7 +70,7 @@ namespace MonoGame.Tests.Framework
             Compare(expected, Quaternion.Conjugate(q));
 
             Quaternion result;
-            Quaternion.Conjugate(ref q, out result);
+            Quaternion.Conjugate(q, out result);
             Compare(expected, result);
 
             q.Conjugate();
@@ -87,7 +87,7 @@ namespace MonoGame.Tests.Framework
             Compare(expected, Quaternion.CreateFromAxisAngle(axis, angle));
 
             Quaternion result;
-            Quaternion.CreateFromAxisAngle(ref axis, angle, out result);
+            Quaternion.CreateFromAxisAngle(axis, angle, out result);
             Compare(expected, result);
         }
 
@@ -99,7 +99,7 @@ namespace MonoGame.Tests.Framework
             Compare(expected, Quaternion.CreateFromRotationMatrix(matrix));
 
             Quaternion result;
-            Quaternion.CreateFromRotationMatrix(ref matrix, out result);
+            Quaternion.CreateFromRotationMatrix(matrix, out result);
             Compare(expected, result);
         }
 
@@ -123,7 +123,7 @@ namespace MonoGame.Tests.Framework
             Compare(expected, Quaternion.Divide(q1, q2));
 
             Quaternion result;
-            Quaternion.Divide(ref q1, ref q2, out result);
+            Quaternion.Divide(q1, q2, out result);
             Compare(expected, result);
         }
 
@@ -150,7 +150,7 @@ namespace MonoGame.Tests.Framework
             Compare(expected, Quaternion.Normalize(q));
 
             Quaternion result;
-            Quaternion.Normalize(ref q, out result);
+            Quaternion.Normalize(q, out result);
             Compare(expected, result);
 
 
