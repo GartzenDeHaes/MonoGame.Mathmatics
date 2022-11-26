@@ -367,10 +367,12 @@ namespace Portland.Mathmatics
 		/// Square root of 5
 		/// </summary>
 		public const float Sqrt5f = 2.2360679774997896964f;
+		public const double Sqrt5 = 2.2360679774997896964;
 		/// <summary>
 		/// Golden angle in radians
 		/// </summary>
 		public const float GoldenAnglef = MathF.PI * (3f - Sqrt5f);
+		public const double GoldenAngle = Math.PI * (3.0 - Sqrt5);
 
 		/// <summary>
 		/// A tiny floating point value used in comparisons

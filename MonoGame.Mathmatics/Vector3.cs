@@ -17,11 +17,12 @@ namespace Microsoft.Xna.Framework
 	/// </summary>
 	[DataContract]
 	[DebuggerDisplay("{DebugDisplayString,nq}")]
-	public struct Vector3 : IEquatable<Vector3>
+	public struct Vector3 //: IEquatable<Vector3>
 	{
 		#region Static Fields
 
 		public static readonly Vector3 Zero = new Vector3(0f, 0f, 0f);
+		public static Vector3 zero { get {return Zero;} }
 		public static readonly Vector3 One = new Vector3(1f, 1f, 1f);
 		public static readonly Vector3 UnitX = new Vector3(1f, 0f, 0f);
 		public static readonly Vector3 UnitY = new Vector3(0f, 1f, 0f);
@@ -58,6 +59,10 @@ namespace Microsoft.Xna.Framework
 		/// </summary>
 		[DataMember]
 		public float Z;
+
+		public float x { get { return X; } }
+		public float y { get { return Y; } }
+		public float z { get { return Z; } }
 
 		#endregion
 
@@ -829,6 +834,13 @@ namespace Microsoft.Xna.Framework
 			result.X = value.X * factor;
 			result.Y = value.Y * factor;
 			result.Z = value.Z * factor;
+		}
+
+		public static void OrthoNormalize(ref Vector3 normal, ref Vector3 tangent) 
+		{ 
+			normal.Normalize(); 
+			tangent.Normalize(); 
+			tangent = Cross(tangent, normal); 
 		}
 
 		/// <summary>
